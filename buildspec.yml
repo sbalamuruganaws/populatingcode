@@ -1,0 +1,11 @@
+version: 0.2
+env:
+    secrets-manager:
+      TOKEN: sonartoken1:sonartoken
+phases:
+  install:
+    runtime-versions:
+      java: latest
+  build:
+    commands:
+      - mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=balaaws_testing -Dsonar.organization=balaaws -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$TOKEN
